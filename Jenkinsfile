@@ -1,28 +1,34 @@
 pipeline {
-    agent any
+    agent {
+        label "windows"
+    }
     tools {
-        maven 'Maven 3.3.9'
-        jdk 'jdk8'
+        maven 'Maven3.1.1'
+        jdk 'java8'
     }
     stages {
         stage ('Initialize') {
             steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
+                bat '''
+                    echo "PATH = %PATH%"
+                    echo "M2_HOME = %M2_HOME%"
                 '''
             }
         }
 
         stage ('Build') {
             steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+                    bat 'cd NumberGenerator & mvn install'
             }
-            post {
+             post {
                 success {
-                    junit 'target/surefire-reports/**/*.xml' 
-                }
+                    junit 'NumberGenerator/target/surefire-reports/*.xml'
+                        }
+                 }
+               
+
+           
             }
         }
-    }
+    
 }
