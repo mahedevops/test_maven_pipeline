@@ -326,3 +326,4 @@ def getReleaseVersion() {
                        failFast: true)
            }
        }*/
+sendSplunkFile excludes: '', includes: '', publishFromSlave: true, sizeLimit: '100MB'
