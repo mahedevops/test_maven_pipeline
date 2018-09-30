@@ -5,6 +5,7 @@ pipeline {
     environment {
         EMAIL_RECIPIENTS = 'abhiy.front@gmail.com'
     }
+    sendSplunkConsoleLog()
     stages {
 
         stage('Build with unit testing') {
