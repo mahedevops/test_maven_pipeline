@@ -5,7 +5,6 @@ pipeline {
     environment {
         EMAIL_RECIPIENTS = 'abhiy.front@gmail.com'
     }
-    sendSplunkConsoleLog()
     stages {
 
         stage('Build with unit testing') {
@@ -212,6 +211,7 @@ pipeline {
                 }
             }
         }
+    sendSplunkConsoleLog()
     }
     post {
         // Always runs. And it runs before any of the other post conditions.
