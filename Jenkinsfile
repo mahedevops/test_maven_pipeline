@@ -5,10 +5,6 @@ pipeline {
     environment {
         EMAIL_RECIPIENTS = 'abhiy.front@gmail.com'
     }
-    options {
-        timeout(time: 1, unit: 'HOURS')
-        sendSplunkConsoleLog()
-    }
     stages {
 
         stage('Build with unit testing') {
@@ -242,6 +238,8 @@ pipeline {
         // And we'd really like to be sure that this build doesn't hang forever, so
         // let's time it out after an hour.
         timeout(time: 25, unit: 'MINUTES')
+        sendSplunkConsoleLog()
+
     }
 
 }
