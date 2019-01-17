@@ -3,7 +3,7 @@ pipeline {
     agent any
     // global env variables
     environment {
-        EMAIL_RECIPIENTS = 'abhiy.front@gmail.com'
+        EMAIL_RECIPIENTS = 'test@gmail.com'
     }
     stages {
 
